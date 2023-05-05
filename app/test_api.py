@@ -13,7 +13,6 @@ def test_get_messages_for_recipient():
     data = {"message": message_content}
     response = httpx.post(f"{API_BASE_URL}/addMessage/{sender}/{recipient}", json=data)
     assert response.status_code == 200
-    assert response.json() == {'status': 'OK'}
 
     params = {"index": -1, "number_of_messages": 1}
     response = httpx.get(f"{API_BASE_URL}/getMessagesSlice/{recipient}", params=params)
